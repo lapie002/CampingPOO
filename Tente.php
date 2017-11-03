@@ -1,6 +1,6 @@
 <?php
 
-include_once('Hebergement.php');
+// include_once('Hebergement.php');
 
 class Tente extends Hebergement
 {
@@ -14,16 +14,4 @@ class Tente extends Hebergement
         $this->setNbCuisine(0);
   }
 
-
 }
-
-$tente = new Tente();
-echo "\r\n";
-echo $tente->getNbCouchage();
-echo "\r\n";
-echo $tente->getNbWC();
-echo "\r\n";
-echo $tente->getNbDouche();
-echo "\r\n";
-echo $tente->getNbCuisine();
-echo "\r\n";

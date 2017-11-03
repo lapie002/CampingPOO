@@ -92,20 +92,17 @@ class Hebergement
    //Methodes
    public function Nettoyer()
    {
-
+     echo "Herbegement nettoyé";
    }
 
    public function Occuper()
    {
-
+     echo "Herbegement occupé";
    }
 
    public function Reserver()
    {
-
+     echo "Herbegement réservé";
    }
-
-
-
 
 }

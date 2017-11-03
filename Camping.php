@@ -39,3 +39,7 @@ $camping = new Camping('les flots bleu');
 echo "\r\n";
 echo $camping->getName();
 echo "\r\n";
+$camping->setName('Camping Paradie');
+echo "\r\n";
+echo $camping->getName();
+echo "\r\n";

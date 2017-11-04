@@ -1,9 +1,18 @@
 <?php
 
-include_once('Camping.php');
-include_once('Hebergement.php');
-include_once('Tente.php');
-include_once('Bungalow.php');
+/*Option A : chargement de chq class*/
+// include_once('Camping.php');
+// include_once('Hebergement.php');
+// include_once('Tente.php');
+// include_once('Bungalow.php');
+
+
+/*Option B : chargement de une class qui les charge toutes*/
+// au lieu de charger une class apres l autre comme au dessus
+// on charge le singleton Autoloader
+require('class/Autoloader.php');
+// on appele une methode : register de la Classe Autoloader
+Autoloader::register();
 
 
 echo "Mon Camping s'appelait :";

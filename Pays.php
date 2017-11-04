@@ -7,45 +7,36 @@ class Pays
   private $_nompays;
 
   /* fonction hydratation des donnees provenant de la BDD: public function hydrate(array $donnees) */
-  public function hydrate($id,$nom)
+  public function hydrate(array $donnees)
   {
-      // foreach($donnees as $key => $value)
-      // {
-      //   // On récupère le nom du setter correspondant à l'attribut.
-      //   $method = 'set'.ucfirst($key);
-      //   // Si le setter correspondant existe.
-      //   if(method_exists($this, $method))
-      //   {
-      //     // On appelle le setter.
-      //     $this->$method($value);
-      //   }
-      // }
+      foreach($donnees as $key => $value)
+      {
+        // On récupère le nom du setter correspondant à l'attribut.
+        $method = 'set'.ucfirst($key);
+        // Si le setter correspondant existe.
+        if(method_exists($this, $method))
+        {
+          // On appelle le setter.
+          $this->$method($value);
+        }
+      }
+   }
 
-      // $this->setIdpays($id);
-      // $this->setNompays($nom);
+   /* le constructeur de l'objet Code */
+   public function __construct(array $donnees){
 
+        $this->hydrate($donnees);
+
+        // hydrate() remplace les setters :
+        //  $this->setIdpays($id);
+        //  $this->setNompays($nom);
 
    }
-   /* le constructeur de l'objet Code */
-  //  public function __construct($id,$nom){
-   //
-  //       //  $this->hydrate($id,$nom);
-   //
-  //        $this->setIdpays($id);
-  //        $this->setNompays($nom);
-   //
-  //  }
 
-  function Pays($id,$nom) {
-
-      // $this->_idpays = $id;
-      // $this->_nompays = $nom;
-
-      $this->setIdpays($id);
-      $this->setNompays($nom);
-
-
-  }
+  // function Pays($id,$nom) {
+  //     $this->setIdpays($id);
+  //     $this->setNompays($nom);
+  // }
 
 
    /* SETTERS */
@@ -88,9 +79,15 @@ class Pays
 
 
 
+// creation de deux tableau de donnees Pays
+$donneesPolska = ['idpays' => 1, 'nompays' => 'Pologne'];
+$donneesFrites = array('idpays' => 2,'nompays'=> 'Belgique');
 
+$Polska = new Pays($donneesPolska);
+
+echo $Polska->getNompays();
 echo "\r\n";
-$canada = new Pays(1,'Pologne');
-echo "\r\n";
-echo $canada->getNompays();
+$Frites = new Pays($donneesFrites);
+
+echo $Frites->getNompays();
 echo "\r\n";
